@@ -1,0 +1,9 @@
+{
+  "name": "Grasscutter-Packets",
+  "description": "A packet visualizer for Grasscutter.",
+  "mainClass": "io.grasscutter.packets.Packets",
+
+  "version": "1.0",
+  "authors": ["KingRainbow44"],
+  "website": "https://seikimo.moe"
+}
