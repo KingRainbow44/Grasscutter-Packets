@@ -1,6 +1,7 @@
 package io.grasscutter.packets;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import com.google.protobuf.GeneratedMessageV3;
@@ -68,7 +69,7 @@ public interface PacketUtils {
      * @param obj The object to convert.
      * @return The primitive.
      */
-    static JsonPrimitive toPrimitive(Object obj) {
+    static JsonElement toElement(Object obj) {
         if (obj instanceof Integer)
             return new JsonPrimitive((int) obj);
         if (obj instanceof Long)
@@ -81,7 +82,7 @@ public interface PacketUtils {
             return new JsonPrimitive((boolean) obj);
         if (obj instanceof String)
             return new JsonPrimitive((String) obj);
-        return null;
+        return JSON.toJsonTree(obj);
     }
 
     /**
@@ -118,7 +119,7 @@ public interface PacketUtils {
                     // Get the name of the field.
                     name = name.substring(0, name.length() - 1);
                     // Encode the field and write its name + value to the JSON object.
-                    json.add(name, PacketUtils.toPrimitive(field.get(packet)));
+                    json.add(name, PacketUtils.toElement(field.get(packet)));
 
                     // Disable access to private fields.
                     field.setAccessible(false);
