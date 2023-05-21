@@ -9,8 +9,6 @@ import emu.grasscutter.server.event.game.SendPacketEvent;
 import lombok.Getter;
 import org.slf4j.Logger;
 
-import java.util.Objects;
-
 public final class Packets extends Plugin {
     @Getter private static Packets instance;
 
@@ -39,14 +37,10 @@ public final class Packets extends Plugin {
         this.getPacketServer().start(); // Start the server.
 
         // Register packet handlers.
-        new EventHandler<>(ReceivePacketEvent.class)
-                .listener(this::onPacketReceived)
-                .priority(HandlerPriority.HIGH)
-                .ignore(true).register(this);
-        new EventHandler<>(SendPacketEvent.class)
-                .listener(this::onPacketSend)
-                .priority(HandlerPriority.HIGH)
-                .ignore(true).register(this);
+        EventHandler.newHandler(this, ReceivePacketEvent.class,
+                this::onPacketReceived, HandlerPriority.HIGH);
+        EventHandler.newHandler(this, SendPacketEvent.class,
+                this::onPacketSend, HandlerPriority.HIGH);
 
         // Register the packet command.
         this.getHandle().registerCommand(new PacketsCommand());
@@ -54,7 +48,7 @@ public final class Packets extends Plugin {
         // Check if the frontend should be served.
         if (PacketsConfig.get().serveClient) {
             // Register the frontend.
-            this.getHandle().getHttpServer().addRouter(PacketsRouter.class);
+            this.getHandle().addRouter(PacketsRouter.class);
         }
 
         this.getLogger().info("Packet logger enabled.");

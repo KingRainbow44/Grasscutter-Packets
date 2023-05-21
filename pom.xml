@@ -16,9 +16,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>xyz.grasscutters</groupId>
+            <groupId>io.grasscutter</groupId>
             <artifactId>grasscutter</artifactId>
-            <version>1.4.7</version>
+            <version>2.0.0-unstable</version>
             <scope>provided</scope>
         </dependency>
 

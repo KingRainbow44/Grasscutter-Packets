@@ -1,5 +1,6 @@
 # Grasscutter-Packets
-Visualize packets sent and processed by Grasscutter in your browser.
+Visualize packets sent and processed by Grasscutter in your browser.\
+**As of `395f7bad`, this plugin only supports the `unstable` branch of Grasscutter.**
 
 **This project uses [Crepe-Inc/Iridium](https://github.com/Crepe-Inc/Iridium) to visualize packets.**\
 Find the forked version of the frontend at [KingRainbow44/Packet-Visualizer](https://github.com/KingRainbow44/Packet-Visualizer).
