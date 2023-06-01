@@ -2,6 +2,7 @@
   "name": "Grasscutter-Packets",
   "description": "A packet visualizer for Grasscutter.",
   "mainClass": "io.grasscutter.packets.Packets",
+  "api": 2,
 
   "version": "1.0",
   "authors": ["KingRainbow44"],

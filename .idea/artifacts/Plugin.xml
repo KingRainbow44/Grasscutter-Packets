@@ -4,6 +4,9 @@
     <root id="archive" name="Grasscutter-Packets.jar">
       <element id="module-output" name="Grasscutter-Packets" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/java-websocket/Java-WebSocket/1.5.3/Java-WebSocket-1.5.3.jar" path-in-jar="/" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/plugin.json" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/index.html" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/shicon.ttf" />
     </root>
   </artifact>
 </component>
